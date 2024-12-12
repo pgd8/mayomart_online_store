@@ -69,16 +69,16 @@ class ProfileTab extends StatelessWidget {
             ),
             SettingTemplate(
                 icon: const Icon(
-                  Icons.lock_outline,
+                  Icons.light_mode_outlined,
                   color: AppTheme.mainColor,
                 ),
-                title: "Change Password"),
+                title: "change mode"),
             SettingTemplate(
                 icon: const Icon(Icons.lock_outline, color: AppTheme.mainColor),
                 title: "Change Password"),
             SettingTemplate(
                 icon:
-                    const Icon(Icons.sort_by_alpha, color: AppTheme.mainColor),
+                    const Icon(Icons.translate, color: AppTheme.mainColor),
                 title: "Change Password"),
             Container(
               alignment: Alignment.centerLeft,

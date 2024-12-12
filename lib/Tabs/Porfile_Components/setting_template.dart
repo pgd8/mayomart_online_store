@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mayomart_online_store/My_APP/app_theme.dart';
 
 class SettingTemplate extends StatelessWidget {
   Icon icon;
@@ -23,7 +22,14 @@ class SettingTemplate extends StatelessWidget {
               ),
               Container(
                   alignment: Alignment.centerLeft,
-                  child: Text(title)
+                  child: Text(
+                      title,
+                    style: TextStyle(
+                      fontSize: 13.sp,
+                      fontFamily: "childos",
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
               )
             ],
           ),
