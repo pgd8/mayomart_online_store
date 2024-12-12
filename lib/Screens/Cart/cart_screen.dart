@@ -4,6 +4,7 @@ import 'package:mayomart_online_store/Data_Classes/cart_model.dart';
 import 'package:mayomart_online_store/Screens/Cart/components/product_in_cart.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slide_to_act/slide_to_act.dart';
+
 class CartScreen extends StatefulWidget {
   static const String routeName = "Cart Screen";
 
@@ -48,35 +49,42 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
             ),
-            Container(
-              margin:
-                  EdgeInsets.symmetric(horizontal: 0.03.sw,
-                      vertical: 0.01.sh),
-              child: SlideAction(
-                outerColor: Colors.black,
-                innerColor: Colors.red,
-                elevation: 0.01.sh,
-                sliderButtonIconSize: 14.sp,
-                sliderButtonIconPadding: 15.r,
-                sliderButtonIcon: const Icon(Icons.arrow_forward_ios_rounded),
-                submittedIcon: const Icon(Icons.done,color: Colors.white,),
-                animationDuration: const Duration(milliseconds: 200),
-                onSubmit: () {
-                  CartScreen.cartProducts.clear();
-                },
-                text: "Swipe toPlace Order",
-                textStyle: TextStyle(
-                  fontFamily: "childos",
-                  fontSize: 14.sp,
-                  color: Colors.grey
-                ),
-                enabled: true,
-                textColor: Colors.grey,
-              ),
-            )
+            slideButton()
           ],
         ),
       ),
     );
+  }
+  Widget slideButton(){
+    if(CartScreen.cartProducts.isNotEmpty){
+      return Container(
+        margin:
+        EdgeInsets.symmetric(horizontal: 0.03.sw, vertical: 0.01.sh),
+        child: SlideAction(
+          outerColor: Colors.black,
+          innerColor: Colors.red,
+          elevation: 0.01.sh,
+          sliderButtonIconSize: 14.sp,
+          sliderButtonIconPadding: 15.r,
+          sliderButtonIcon: const Icon(Icons.arrow_forward_ios_rounded),
+          submittedIcon: const Icon(
+            Icons.done,
+            color: Colors.white,
+          ),
+          animationDuration: const Duration(milliseconds: 200),
+          onSubmit: () {
+            CartScreen.cartProducts.clear();
+            setState(() {});
+          },
+          text: "Swipe toPlace Order",
+          textStyle: TextStyle(
+              fontFamily: "childos", fontSize: 14.sp, color: Colors.grey),
+          enabled: true,
+          textColor: Colors.grey,
+        ),
+      );
+    } else{
+      return Container();
+    }
   }
 }

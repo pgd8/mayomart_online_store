@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color mainColor = Color(0xffff0000);
@@ -16,8 +15,10 @@ class AppTheme {
       appBarTheme: AppBarTheme(
           backgroundColor: mainColor,
           iconTheme: IconThemeData(color: thirdColor),
-          toolbarHeight: 0.065.sh,
-          titleTextStyle: GoogleFonts.nunito(
+          toolbarHeight: 0.0.sh,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            fontFamily: "childos",
             color: Colors.white,
             fontWeight: FontWeight.bold,
           )),
@@ -34,16 +35,19 @@ class AppTheme {
         showSelectedLabels: true,
         selectedItemColor: mainColor,
         unselectedItemColor: Colors.grey,
-        selectedLabelStyle: GoogleFonts.nunito(
+        selectedLabelStyle: TextStyle(
+          fontFamily: "childos",
           color: mainColor,
           fontSize: 12.sp,
         ),
         showUnselectedLabels: false,
       ),
       listTileTheme: ListTileThemeData(
-        titleTextStyle: GoogleFonts.nunito(
+        titleTextStyle: TextStyle(
+            fontFamily: "childos",
             fontSize: 11.sp, fontWeight: FontWeight.bold, color: Colors.black),
-        subtitleTextStyle: GoogleFonts.nunito(
+        subtitleTextStyle: TextStyle(
+            fontFamily: "childos",
             fontSize: 10.sp,
             fontWeight: FontWeight.w600,
             color: Colors.grey.shade800),
