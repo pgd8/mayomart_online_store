@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
-import 'package:mayomart_online_store/Tabs/Porfile_Components/profile_tab.dart';
+import 'package:mayomart_online_store/Tabs/profile_tab.dart';
 import 'package:mayomart_online_store/Tabs/home_tab.dart';
 import '../../My_APP/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
