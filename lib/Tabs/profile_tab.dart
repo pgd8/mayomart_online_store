@@ -79,7 +79,7 @@ class ProfileTab extends StatelessWidget {
             SettingTemplate(
                 icon:
                     const Icon(Icons.translate, color: AppTheme.mainColor),
-                title: "Change Password"),
+                title: "Change Language "),
             Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
