@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
 import 'package:mayomart_online_store/Screens/Sign_Up_Screen/sign_up_screen.dart';
 import 'package:mayomart_online_store/Shared_Components/field_label.dart';
@@ -126,7 +125,8 @@ class _LoginFormState extends State<LoginForm> {
                 }
               },
               child: Text("Login",
-                  style: GoogleFonts.nunito(
+                  style: TextStyle(
+                    fontFamily: "childos",
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                   )),
@@ -143,7 +143,10 @@ class _LoginFormState extends State<LoginForm> {
                 child: Text(
                   "Don't Have Account?",
                   style:
-                      TextStyle(fontSize: 9.sp, color: Colors.blue.shade700),
+                      TextStyle(
+                        fontFamily: "childos",
+                          fontSize: 9.sp,
+                          color: Colors.blue.shade700),
                 )),
           ),
         ],
