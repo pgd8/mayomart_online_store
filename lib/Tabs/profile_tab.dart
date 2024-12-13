@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/app_mode_button.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/setting_template.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -67,12 +68,7 @@ class ProfileTab extends StatelessWidget {
                 ),
               ),
             ),
-            SettingTemplate(
-                icon: const Icon(
-                  Icons.light_mode_outlined,
-                  color: AppTheme.mainColor,
-                ),
-                title: "change mode"),
+            ChangeAppModeButton(),
             SettingTemplate(
                 icon: const Icon(Icons.lock_outline, color: AppTheme.mainColor),
                 title: "Change Password"),

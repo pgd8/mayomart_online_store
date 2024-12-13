@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           MaterialApp(
             debugShowCheckedModeBanner: false,
             title: "15 Mayo Mart",
+            themeMode: ThemeMode.light,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             initialRoute: LoginScreen.routeName,
