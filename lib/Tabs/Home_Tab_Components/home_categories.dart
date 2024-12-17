@@ -15,12 +15,10 @@ class HomeCategories extends StatelessWidget {
               imagePath: "assets/images/fruits&vegetables.png")),
       Category(
           categoryModel: CategoryModel(
-              categoryName: "Vegetables",
-              imagePath: "assets/images/fruits&vegetables.png")),
+              categoryName: "Meats", imagePath: "assets/images/meat.png")),
       Category(
           categoryModel: CategoryModel(
-              categoryName: "Vegetables",
-              imagePath: "assets/images/fruits&vegetables.png")),
+              categoryName: "chicken", imagePath: "assets/images/chicken.png")),
       Category(
           categoryModel: CategoryModel(
               categoryName: "Vegetables",

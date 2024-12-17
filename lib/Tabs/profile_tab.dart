@@ -73,8 +73,7 @@ class ProfileTab extends StatelessWidget {
                 icon: const Icon(Icons.lock_outline, color: AppTheme.mainColor),
                 title: "Change Password"),
             SettingTemplate(
-                icon:
-                    const Icon(Icons.translate, color: AppTheme.mainColor),
+                icon: const Icon(Icons.translate, color: AppTheme.mainColor),
                 title: "Change Language "),
             Container(
               alignment: Alignment.centerLeft,
@@ -107,8 +106,7 @@ class ProfileTab extends StatelessWidget {
                     color: AppTheme.mainColor),
                 title: "Privacy Policy"),
             SettingTemplate(
-                icon: const Icon(Icons.share,
-                    color: AppTheme.mainColor),
+                icon: const Icon(Icons.share, color: AppTheme.mainColor),
                 title: "Share App"),
           ],
         ),

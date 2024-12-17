@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
+import 'package:mayomart_online_store/Tabs/Search_Tab/search_tab.dart';
 import 'package:mayomart_online_store/Tabs/profile_tab.dart';
 import 'package:mayomart_online_store/Tabs/home_tab.dart';
 import '../../My_APP/app_theme.dart';
@@ -39,7 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.person_3_outlined), label: "profile"),
           ]),
       appBar: ind == 0
-          ? AppBar(toolbarHeight: 0.0,)
+          ? AppBar(
+              toolbarHeight: 0.0,
+            )
           : AppBar(
               backgroundColor: AppTheme.mainColor,
               iconTheme: IconThemeData(color: AppTheme.thirdColor),
@@ -59,11 +62,12 @@ class _HomeScreenState extends State<HomeScreen> {
     ));
   }
 
-  List<Widget> tabs = [HomeTab(), Container(), Container(), ProfileTab()];
-  String titleDetect(){
-    if(ind == 1){
+  List<Widget> tabs = [HomeTab(), SearchTab(), Container(), ProfileTab()];
+
+  String titleDetect() {
+    if (ind == 1) {
       return "Search";
-    } else if(ind == 2) {
+    } else if (ind == 2) {
       return "Category";
     } else {
       return "Profile";

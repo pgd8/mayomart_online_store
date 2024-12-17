@@ -20,15 +20,12 @@ class Category extends StatelessWidget {
             arguments: categoryModel.categoryName);
       },
       child: Container(
-        padding: EdgeInsets.all(2.r),
-        margin:
-            EdgeInsets.symmetric(horizontal: 0.02.sw),
+        padding: EdgeInsets.all(4.r),
+        margin: EdgeInsets.symmetric(horizontal: 0.02.sw),
         decoration: const BoxDecoration(
-            color: AppTheme.categoryColor,
-            shape: BoxShape.circle),
+            color: AppTheme.categoryColor, shape: BoxShape.circle),
         child: Image.asset(categoryModel.imagePath,
-            width: 0.3.sw,
-            fit: BoxFit.contain),
+            width: 0.3.sw, fit: BoxFit.contain),
       ),
     );
   }
