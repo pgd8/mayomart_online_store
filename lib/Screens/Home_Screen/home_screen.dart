@@ -24,14 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: AppTheme.thirdColor,
-          elevation: 0.01.sh,
-          enableFeedback: false,
-          showSelectedLabels: true,
-          selectedItemColor: AppTheme.mainColor,
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: false,
           currentIndex: ind,
           onTap: (int index) {
             ind = index;
@@ -47,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.person_3_outlined), label: "profile"),
           ]),
       appBar: ind == 0
-          ? AppBar()
+          ? AppBar(toolbarHeight: 0.0,)
           : AppBar(
               backgroundColor: AppTheme.mainColor,
               iconTheme: IconThemeData(color: AppTheme.thirdColor),

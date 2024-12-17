@@ -105,7 +105,7 @@ class ProfileTab extends StatelessWidget {
             SettingTemplate(
                 icon: const Icon(Icons.privacy_tip_outlined,
                     color: AppTheme.mainColor),
-                title: "Terms & Conditions"),
+                title: "Privacy Policy"),
             SettingTemplate(
                 icon: const Icon(Icons.share,
                     color: AppTheme.mainColor),

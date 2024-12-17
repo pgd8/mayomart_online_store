@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mayomart_online_store/Data_Classes/category_model.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
 import 'package:mayomart_online_store/Screens/Products_Screen/products_screen.dart';
-
+import 'package:mayomart_online_store/Shared_Components/custom_text.dart';
 
 class Category extends StatelessWidget {
-  String categoryImage;
-  String label;
+  CategoryModel categoryModel;
 
-  Category({super.key, required this.categoryImage, required this.label});
+  Category({super.key, required this.categoryModel});
 
   @override
   Widget build(BuildContext context) {
@@ -17,29 +17,18 @@ class Category extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, ProductsScreen.routeName,
-            arguments: label);
+            arguments: categoryModel.categoryName);
       },
-      child: Expanded(
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                    vertical: 0.002.sh, horizontal: 0.00.sw),
-                decoration: BoxDecoration(
-                    color: AppTheme.categoryColor,
-                    borderRadius: BorderRadius.circular(20.r),
-                    shape: BoxShape.rectangle),
-                child: Image.asset(categoryImage,
-                    fit: BoxFit.contain, semanticLabel: label),
-              ),
-            ),
-            Text(
-              label,
-              style: GoogleFonts.nunito(),
-            )
-          ],
-        ),
+      child: Container(
+        padding: EdgeInsets.all(2.r),
+        margin:
+            EdgeInsets.symmetric(horizontal: 0.02.sw),
+        decoration: const BoxDecoration(
+            color: AppTheme.categoryColor,
+            shape: BoxShape.circle),
+        child: Image.asset(categoryModel.imagePath,
+            width: 0.3.sw,
+            fit: BoxFit.contain),
       ),
     );
   }

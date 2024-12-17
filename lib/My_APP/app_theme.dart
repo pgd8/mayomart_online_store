@@ -12,16 +12,34 @@ class AppTheme {
       //   elevation: 0.01.sh,
       //   shadowColor: Colors.grey.shade600,
       // ),
+    textTheme: TextTheme(),
       appBarTheme: AppBarTheme(
           backgroundColor: mainColor,
           iconTheme: IconThemeData(color: thirdColor),
-          toolbarHeight: 0.0.sh,
+          toolbarHeight: 0.065.sh,
           centerTitle: true,
           titleTextStyle: TextStyle(
             fontFamily: "childos",
             color: Colors.white,
             fontWeight: FontWeight.bold,
           )),
+      searchBarTheme: SearchBarThemeData(
+        backgroundColor: WidgetStatePropertyAll(thirdColor,),
+        hintStyle: WidgetStatePropertyAll(
+          TextStyle(
+            fontFamily: "childos",
+            fontSize: 13.sp,
+            color: Colors.grey.shade600,
+          ),
+        ),
+        shape: WidgetStatePropertyAll(OutlinedBorder.lerp(
+            ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(25.r)),
+            ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(25.r)
+            ),
+            0.20.r)),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
         backgroundColor: mainColor,
@@ -29,23 +47,26 @@ class AppTheme {
         shadowColor: Colors.grey,
       )),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: secondaryColor,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppTheme.thirdColor,
         elevation: 0.01.sh,
         enableFeedback: false,
         showSelectedLabels: true,
-        selectedItemColor: mainColor,
+        selectedItemColor: AppTheme.mainColor,
         unselectedItemColor: Colors.grey,
+        showUnselectedLabels: false,
         selectedLabelStyle: TextStyle(
           fontFamily: "childos",
           color: mainColor,
           fontSize: 12.sp,
         ),
-        showUnselectedLabels: false,
       ),
       listTileTheme: ListTileThemeData(
         titleTextStyle: TextStyle(
             fontFamily: "childos",
-            fontSize: 11.sp, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 11.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.black),
         subtitleTextStyle: TextStyle(
             fontFamily: "childos",
             fontSize: 10.sp,
