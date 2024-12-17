@@ -21,6 +21,7 @@ class Product extends StatelessWidget {
           title: Text(productModel.productName),
           subtitle: Text(productModel.productDescription),
           leading: Image.asset(productModel.productImage),
+          trailing: Text("${productModel.price} EGP"),
           dense: true,
         ),
       ),

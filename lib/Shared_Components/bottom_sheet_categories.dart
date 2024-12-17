@@ -9,13 +9,6 @@ class BottomSheetCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> categories = [
-      Category(categoryImage: "assets/images/fruits&vegetables.png", label: "Fruits"),
-      Category(categoryImage: "assets/images/meat.png",label: "Meats"),
-      Category(categoryImage: "assets/images/chicken.png",label: "Chicken"),
-      Category(categoryImage: "assets/images/fastFood.png", label: "Fast Food"),
-      Category(categoryImage: "assets/images/vegetables.png",label: "Vegetables"),
-      Category(categoryImage: "assets/images/vegetables.png",label: "Vegetables"),
-      Category(categoryImage: "assets/images/vegetables.png",label: "Vegetables"),
     ];
     return Padding(
       padding: EdgeInsets.all(8.0.r),

@@ -9,21 +9,27 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           productImage: "assets/images/fruits&vegetables.png",
-          quantityInStock: 10),
+          quantityInStock: 10,
+        price: 5.5
+      ),
     ),
     Product(
       productModel: ProductModel(
           productName: "productName",
           productDescription: "productDescription",
           productImage: "assets/images/fruits&vegetables.png",
-          quantityInStock: 10),
+          quantityInStock: 10,
+          price: 5.5
+      ),
     ),
     Product(
       productModel: ProductModel(
           productName: "productName",
           productDescription: "productDescription",
           productImage: "assets/images/fruits&vegetables.png",
-          quantityInStock: 10),
+          quantityInStock: 10,
+          price: 5.5
+      ),
     ),
   ];
   List<Product> meats = [
@@ -32,12 +38,14 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 5,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
   ];
   List<Product> chickens = [
     Product(
       productModel: ProductModel(
+          price: 5.5,
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
@@ -46,6 +54,7 @@ class Stock {
     Product(
       productModel: ProductModel(
           productName: "productName",
+          price: 5.5,
           productDescription: "productDescription",
           quantityInStock: 10,
           productImage: "assets/images/fruits&vegetables.png"),
@@ -53,6 +62,7 @@ class Stock {
     Product(
       productModel: ProductModel(
           productName: "productName",
+          price: 5.5,
           productDescription: "productDescription",
           quantityInStock: 10,
           productImage: "assets/images/fruits&vegetables.png"),
@@ -64,6 +74,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
     Product(
@@ -71,6 +82,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
     Product(
@@ -78,6 +90,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
   ];
@@ -87,6 +100,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
     Product(
@@ -94,6 +108,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
     Product(
@@ -101,6 +116,7 @@ class Stock {
           productName: "productName",
           productDescription: "productDescription",
           quantityInStock: 10,
+          price: 5.5,
           productImage: "assets/images/fruits&vegetables.png"),
     ),
   ];

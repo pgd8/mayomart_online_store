@@ -100,7 +100,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   } else {
                     var cartModel =
                         CartModel(product: product, quantity: count);
-                    CartScreen.cartProducts.add(cartModel);
+                    CartScreen.cartProducts.insert(0, cartModel);
                     count = 0;
                     Navigator.pushNamed(context, CartScreen.routeName,
                         arguments: cartModel);
