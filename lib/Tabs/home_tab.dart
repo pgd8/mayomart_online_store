@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mayomart_online_store/Data_Classes/category_model.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
+import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import 'package:mayomart_online_store/Shared_Components/app_logo.dart';
 import 'package:mayomart_online_store/Shared_Components/custom_text.dart';
 import 'package:mayomart_online_store/Tabs/Home_Tab_Components/home_categories.dart';
-import 'package:mayomart_online_store/Tabs/Home_Tab_Components/category.dart';
 import 'package:mayomart_online_store/Tabs/Home_Tab_Components/welcome_message_and_cart_button.dart';
+import 'package:provider/provider.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -14,6 +14,7 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -50,16 +51,35 @@ class HomeTab extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
-          child: CustomText(
-              text: "Categories", size: 14.sp, color: AppTheme.secondaryColor),
-        ),
+            margin:
+                EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
+            child: CustomText(
+                text: "Categories",
+                size: 14.sp,
+                color: provider.appMode == ThemeMode.light
+                    ? AppTheme.secondaryColor
+                    : AppTheme.thirdColor)),
         // ImageSlideshow(children: []),
         HomeCategories(),
-        CustomText(text: "Offers", size: 14.sp, color: AppTheme.secondaryColor),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
+          child: CustomText(
+              text: "Offers",
+              size: 14.sp,
+              color: provider.appMode == ThemeMode.light
+                  ? AppTheme.secondaryColor
+                  : AppTheme.thirdColor),
+        ),
         // ImageSlideshow(children: []),
-        CustomText(
-            text: "Recommended", size: 14.sp, color: AppTheme.secondaryColor),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
+          child: CustomText(
+              text: "Recommended",
+              size: 14.sp,
+              color: provider.appMode == ThemeMode.light
+                  ? AppTheme.secondaryColor
+                  : AppTheme.thirdColor),
+        ),
       ],
     );
   }

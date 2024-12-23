@@ -6,7 +6,8 @@ import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mayomart_online_store/Shared_Components/error_dialog.dart';
-
+import 'package:provider/provider.dart';
+import 'package:mayomart_online_store/My_APP/my_provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routeName = "Product Details Screen";
@@ -23,6 +24,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
+    var provider = Provider.of<MyProvider>(context);
     var product = ModalRoute.of(context)!.settings!.arguments as ProductModel;
     return SafeArea(
         child: Scaffold(
@@ -57,8 +59,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       }
                       setState(() {});
                     },
-                    icon: const Icon(Icons.minimize)), // Minus Button
-                Text("$count Kg"),
+                    icon: Icon(Icons.minimize,
+                        color: provider.appMode == ThemeMode.light
+                            ? AppTheme.secondaryColor
+                            : AppTheme.thirdColor)), // Minus Button
+                Text(
+                  "$count Kg",
+                  style: TextStyle(
+                      color: provider.appMode == ThemeMode.light
+                          ? AppTheme.secondaryColor
+                          : AppTheme.thirdColor),
+                ),
                 IconButton(
                     onPressed: () {
                       if (product.quantityInStock <= count) {
@@ -82,7 +93,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       }
                       setState(() {});
                     },
-                    icon: const Icon(Icons.add)), // Add Button
+                    icon: Icon(Icons.add,
+                        color: provider.appMode == ThemeMode.light
+                            ? AppTheme.secondaryColor
+                            : AppTheme.thirdColor)), // Add Button
               ],
             ),
             Container(

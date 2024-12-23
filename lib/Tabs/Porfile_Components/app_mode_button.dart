@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
+import 'package:mayomart_online_store/My_APP/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class ChangeAppModeButton extends StatelessWidget {
   ChangeAppModeButton({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return InkWell(
+      onTap: () {
+        provider.changeAppMode();
+      },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 0.03.sh),
         child: Row(
@@ -20,7 +26,9 @@ class ChangeAppModeButton extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 0.04.sw),
                   child: Icon(
                     Icons.light_mode_outlined,
-                    color: AppTheme.mainColor,
+                    color: provider.appMode == ThemeMode.light
+                        ? AppTheme.mainColor
+                        : AppTheme.thirdColor,
                   ),
                 ),
                 Column(
@@ -31,13 +39,18 @@ class ChangeAppModeButton extends StatelessWidget {
                           "Change App Mode",
                           style: TextStyle(
                               fontSize: 13.sp,
+                              color: provider.appMode == ThemeMode.light
+                                  ? AppTheme.secondaryColor
+                                  : AppTheme.thirdColor,
                               fontFamily: "childos",
                               fontWeight: FontWeight.bold),
                         )),
                     Text(
-                      "Ligt & Dark",
+                      "Light & Dark",
                       style: TextStyle(
-                          color: Colors.grey.shade600,
+                          color: provider.appMode == ThemeMode.light
+                              ? Colors.grey.shade600
+                              : Colors.grey.shade400,
                           fontFamily: "childos",
                           fontSize: 12.sp),
                     )
@@ -46,7 +59,10 @@ class ChangeAppModeButton extends StatelessWidget {
               ],
             ),
             Container(
-              child: Icon(Icons.arrow_forward_ios_rounded),
+              child: Icon(Icons.arrow_forward_ios_rounded,
+                  color: provider.appMode == ThemeMode.light
+                      ? AppTheme.secondaryColor
+                      : AppTheme.thirdColor),
               margin: EdgeInsets.symmetric(horizontal: 0.04.sw),
             ),
           ],

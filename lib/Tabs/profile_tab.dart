@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/about_app.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/app_mode_button.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/change_language_button.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/change_password_button.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/email.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/log_out_button.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/privacy_policy.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/profile_icon.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/setting_template.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/share_app.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/terms_and_conditions.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/username.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -17,39 +27,9 @@ class ProfileTab extends StatelessWidget {
         physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
         child: Column(
           children: [
-            Container(
-                alignment: Alignment.topCenter,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black, width: 5.sp)),
-                child: Icon(
-                  Icons.person,
-                  color: AppTheme.mainColor,
-                  size: 120.sp,
-                )), // profile icon
-            Container(
-              child: Text(
-                "Abdelrahman Hamdi",
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "childos",
-                  textBaseline: TextBaseline.alphabetic,
-                ),
-              ),
-            ), // user name
-            Container(
-              margin: EdgeInsets.only(bottom: 0.02.sh),
-              child: Text(
-                "abdelrahmanhamdi08@gmail.com",
-                style: TextStyle(
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "childos",
-                  textBaseline: TextBaseline.alphabetic,
-                ),
-              ),
-            ), // email
+            const ProfileIcon(),
+            const Username(),
+            const Email(),
             Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
@@ -69,12 +49,8 @@ class ProfileTab extends StatelessWidget {
               ),
             ),
             ChangeAppModeButton(),
-            SettingTemplate(
-                icon: const Icon(Icons.lock_outline, color: AppTheme.mainColor),
-                title: "Change Password"),
-            SettingTemplate(
-                icon: const Icon(Icons.translate, color: AppTheme.mainColor),
-                title: "Change Language "),
+            const ChangePasswordButtonn(),
+            const ChangeLanguageButton(),
             Container(
               alignment: Alignment.centerLeft,
               width: double.infinity,
@@ -93,21 +69,11 @@ class ProfileTab extends StatelessWidget {
                 ),
               ),
             ),
-            SettingTemplate(
-                icon: const Icon(Icons.phone_iphone_rounded,
-                    color: AppTheme.mainColor),
-                title: "About App"),
-            SettingTemplate(
-                icon: const Icon(Icons.file_copy_outlined,
-                    color: AppTheme.mainColor),
-                title: "Terms & Conditions"),
-            SettingTemplate(
-                icon: const Icon(Icons.privacy_tip_outlined,
-                    color: AppTheme.mainColor),
-                title: "Privacy Policy"),
-            SettingTemplate(
-                icon: const Icon(Icons.share, color: AppTheme.mainColor),
-                title: "Share App"),
+            const AboutApp(),
+            const TermsAndConditions(),
+            const PrivacyPolicy(),
+            const ShareApp(),
+            const LogOutButton(),
           ],
         ),
       ),
