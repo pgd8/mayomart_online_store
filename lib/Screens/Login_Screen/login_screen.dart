@@ -11,7 +11,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Center(
           child: Column(

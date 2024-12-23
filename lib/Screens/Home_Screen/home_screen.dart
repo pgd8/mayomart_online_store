@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ScreenUtil.init(context, designSize: const Size(360, 690));
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: ind,
           onTap: (int index) {
