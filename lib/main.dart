@@ -8,5 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
   runApp(ChangeNotifierProvider(
+
       create: (context) => MyProvider(), child: MyApp()));
 }
