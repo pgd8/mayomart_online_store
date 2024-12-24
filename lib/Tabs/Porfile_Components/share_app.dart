@@ -3,6 +3,7 @@ import 'package:mayomart_online_store/My_APP/app_theme.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/setting_template.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShareApp extends StatelessWidget {
   const ShareApp({super.key});
@@ -11,10 +12,10 @@ class ShareApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
     return SettingTemplate(
-        icon:Icon(Icons.share,
+        icon: Icon(Icons.share,
             color: provider.appMode == ThemeMode.light
                 ? AppTheme.mainColor
                 : AppTheme.thirdColor),
-        title: "Share App");
+        title: AppLocalizations.of(context)!.shareApp);
   }
 }

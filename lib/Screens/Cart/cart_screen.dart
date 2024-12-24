@@ -6,6 +6,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../My_APP/app_theme.dart';
 
@@ -28,7 +29,7 @@ class _CartScreenState extends State<CartScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Cart"),
+          title: Text(AppLocalizations.of(context)!.cart),
         ),
         body: Column(
           children: [
@@ -88,7 +89,7 @@ class _CartScreenState extends State<CartScreen> {
             CartScreen.cartProducts.clear();
             setState(() {});
           },
-          text: "Swipe toPlace Order",
+          text: AppLocalizations.of(context)!.swipeToPlaceOrder,
           textStyle: TextStyle(
               fontFamily: "childos", fontSize: 14.sp, color: Colors.grey),
           enabled: true,

@@ -6,6 +6,7 @@ import 'package:mayomart_online_store/Shared_Components/field_label.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import '../Screens/Home_Screen/home_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginForm extends StatefulWidget {
   LoginForm({super.key});
@@ -40,12 +41,13 @@ class _LoginFormState extends State<LoginForm> {
                   ? AppTheme.secondaryColor
                   : AppTheme.thirdColor,
               decoration: InputDecoration(
-                label: FieldLabel(labelText: "Email"),
+                label:
+                    FieldLabel(labelText: AppLocalizations.of(context)!.email),
               ),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value!.isEmpty || value == "") {
-                  return "Email is required";
+                  return AppLocalizations.of(context)!.emailIsRequired;
                 }
               },
               style: TextStyle(
@@ -65,12 +67,14 @@ class _LoginFormState extends State<LoginForm> {
               controller: passwordCon,
               obscureText: isHidden,
               decoration: InputDecoration(
-                label: FieldLabel(labelText: "Password"),
+                label: FieldLabel(
+                    labelText: AppLocalizations.of(context)!.password),
               ),
               validator: (value) {
                 if (value!.isEmpty || value == "") {
-                  return "Password is required";
+                  return AppLocalizations.of(context)!.passwordIsRequired;
                 }
+                return null;
               },
               style: TextStyle(
                   fontSize: 10.sp,
@@ -94,7 +98,7 @@ class _LoginFormState extends State<LoginForm> {
                       ));
                 }
               },
-              child: Text("Login",
+              child: Text(AppLocalizations.of(context)!.login,
                   style: TextStyle(
                     fontFamily: "childos",
                     color: Colors.white,
@@ -109,7 +113,7 @@ class _LoginFormState extends State<LoginForm> {
                       MaterialPageRoute(builder: (context) => SignUpScreen()));
                 },
                 child: Text(
-                  "Don't Have Account?",
+                  AppLocalizations.of(context)!.doNotHaveAccount,
                   style: TextStyle(
                       fontFamily: "childos",
                       fontSize: 9.sp,

@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mayomart_online_store/Shared_Components/error_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routeName = "Product Details Screen";
@@ -64,7 +65,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ? AppTheme.secondaryColor
                             : AppTheme.thirdColor)), // Minus Button
                 Text(
-                  "$count Kg",
+                  "$count ${AppLocalizations.of(context)!.kg}",
                   style: TextStyle(
                       color: provider.appMode == ThemeMode.light
                           ? AppTheme.secondaryColor
@@ -77,15 +78,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           context: context,
                           builder: (context) => ErrorDialog(
                               errorMessage:
-                                  "Sorry but these are the last quantity in stock "
-                                  "you can't buy more"),
+                                  AppLocalizations.of(context)!.lastItemsError),
                         );
                       } else {
                         if (count == 10) {
                           showDialog(
                             context: context,
                             builder: (context) => ErrorDialog(
-                                errorMessage: "Sorry but you got max quantity"),
+                                errorMessage: AppLocalizations.of(context)!
+                                    .maxQuantityError),
                           );
                         } else {
                           count++;
@@ -109,7 +110,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       context: context,
                       builder: (context) => ErrorDialog(
                           errorMessage:
-                              "Sorry but yoo can't buy this quantity"),
+                              AppLocalizations.of(context)!.zeroQuantityError),
                     );
                   } else {
                     var cartModel =
@@ -122,7 +123,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   product.quantityInStock -= count;
                 },
                 child: Text(
-                  "Add To Cart",
+                  AppLocalizations.of(context)!.addToCart,
                   style: GoogleFonts.nunito(
                     fontSize: 12.sp,
                     color: AppTheme.thirdColor,

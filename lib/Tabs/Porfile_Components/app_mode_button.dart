@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChangeAppModeButton extends StatelessWidget {
   ChangeAppModeButton({super.key});
@@ -36,7 +37,7 @@ class ChangeAppModeButton extends StatelessWidget {
                     Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Change App Mode",
+                          AppLocalizations.of(context)!.changeAppMode,
                           style: TextStyle(
                               fontSize: 13.sp,
                               color: provider.appMode == ThemeMode.light
@@ -46,7 +47,7 @@ class ChangeAppModeButton extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         )),
                     Text(
-                      "Light & Dark",
+                      AppLocalizations.of(context)!.modes,
                       style: TextStyle(
                           color: provider.appMode == ThemeMode.light
                               ? Colors.grey.shade600
