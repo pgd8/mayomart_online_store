@@ -6,6 +6,7 @@ class AppTheme {
   static Color secondaryColor = Colors.black;
   static Color thirdColor = Colors.white;
   static const Color categoryColor = Color.fromRGBO(255, 0, 0, 0.4);
+
   static ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: thirdColor,
       inputDecorationTheme: InputDecorationTheme(
@@ -27,8 +28,6 @@ class AppTheme {
           borderSide: const BorderSide(color: Colors.red),
           borderRadius: BorderRadius.circular(25.r),
         ),
-
-
       ),
       appBarTheme: AppBarTheme(
           backgroundColor: mainColor,
@@ -97,7 +96,7 @@ class AppTheme {
       ));
 
   static ThemeData darkTheme = ThemeData(
-    inputDecorationTheme: InputDecorationTheme(
+      inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         errorStyle: TextStyle(fontSize: 9.sp),
         border: OutlineInputBorder(
@@ -116,9 +115,7 @@ class AppTheme {
           borderSide: const BorderSide(color: Colors.red),
           borderRadius: BorderRadius.circular(25.r),
         ),
-
-
-    ),
+      ),
       scaffoldBackgroundColor: secondaryColor,
       appBarTheme: AppBarTheme(
           backgroundColor: mainColor,

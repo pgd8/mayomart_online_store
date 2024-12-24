@@ -9,10 +9,10 @@ import 'package:mayomart_online_store/Tabs/Porfile_Components/email.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/log_out_button.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/privacy_policy.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/profile_icon.dart';
-import 'package:mayomart_online_store/Tabs/Porfile_Components/setting_template.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/share_app.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/terms_and_conditions.dart';
 import 'package:mayomart_online_store/Tabs/Porfile_Components/username.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -31,13 +31,13 @@ class ProfileTab extends StatelessWidget {
             const Username(),
             const Email(),
             Container(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               width: double.infinity,
               height: 0.08.sh,
               color: AppTheme.mainColor,
               padding: EdgeInsets.symmetric(horizontal: 0.02.sw),
               child: Text(
-                "General Settings",
+                AppLocalizations.of(context)!.generalSetting,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -52,13 +52,13 @@ class ProfileTab extends StatelessWidget {
             const ChangePasswordButtonn(),
             const ChangeLanguageButton(),
             Container(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               width: double.infinity,
               height: 0.08.sh,
               color: AppTheme.mainColor,
               padding: EdgeInsets.symmetric(horizontal: 0.02.sw),
               child: Text(
-                "Information",
+                AppLocalizations.of(context)!.information,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 14.sp,

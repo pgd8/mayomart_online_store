@@ -6,6 +6,7 @@ import 'package:mayomart_online_store/Shared_Components/field_label.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpForm extends StatefulWidget {
   SignUpForm({super.key});
@@ -41,11 +42,12 @@ class _SignUpFormState extends State<SignUpForm> {
                   ? AppTheme.secondaryColor
                   : AppTheme.thirdColor,
               controller: usernameCon,
-              decoration:
-                  InputDecoration(label: FieldLabel(labelText: "userName")),
+              decoration: InputDecoration(
+                  label: FieldLabel(
+                      labelText: AppLocalizations.of(context)!.userName)),
               validator: (value) {
                 if (value!.isEmpty || value == "") {
-                  return "userName is required";
+                  return AppLocalizations.of(context)!.userNameIsRequired;
                 }
               },
               keyboardType: TextInputType.name,
@@ -60,15 +62,16 @@ class _SignUpFormState extends State<SignUpForm> {
             margin:
                 EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
-              decoration:
-                  InputDecoration(label: FieldLabel(labelText: "Email")),
+              decoration: InputDecoration(
+                  label: FieldLabel(
+                      labelText: AppLocalizations.of(context)!.email)),
               controller: emailCon,
               cursorColor: provider.appMode == ThemeMode.light
                   ? AppTheme.secondaryColor
                   : AppTheme.thirdColor,
               validator: (value) {
                 if (value!.isEmpty) {
-                  return "Email is required";
+                  return AppLocalizations.of(context)!.emailIsRequired;
                 }
               },
               keyboardType: TextInputType.emailAddress,
@@ -83,15 +86,16 @@ class _SignUpFormState extends State<SignUpForm> {
             margin:
                 EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
-              decoration:
-                  InputDecoration(label: FieldLabel(labelText: "Phone Number")),
+              decoration: InputDecoration(
+                  label: FieldLabel(
+                      labelText: AppLocalizations.of(context)!.phoneNumber)),
               controller: phoneNumCon,
               cursorColor: provider.appMode == ThemeMode.light
                   ? AppTheme.secondaryColor
                   : AppTheme.thirdColor,
               validator: (value) {
                 if (value!.isEmpty || value == "") {
-                  return "phone number is required";
+                  return AppLocalizations.of(context)!.phoneNumberIsRequired;
                 }
               },
               keyboardType: TextInputType.number,
@@ -112,7 +116,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   : AppTheme.thirdColor,
               validator: (value) {
                 if (value!.isEmpty || value == "") {
-                  return "Password is required";
+                  return AppLocalizations.of(context)!.passwordIsRequired;
                 }
               },
               obscureText: isHidden,
@@ -130,7 +134,8 @@ class _SignUpFormState extends State<SignUpForm> {
                     icon: Icon(isHidden
                         ? Icons.visibility_off_rounded
                         : Icons.visibility_rounded)),
-                label: FieldLabel(labelText: "Password"),
+                label: FieldLabel(
+                    labelText: AppLocalizations.of(context)!.password),
               ),
             ),
           ),
@@ -146,7 +151,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 if (value!.isEmpty ||
                     value == "" ||
                     confirmPassCon.text != passwordCon.text) {
-                  return "Password isn't matched";
+                  return AppLocalizations.of(context)!.passwordDoNotMach;
                 }
               },
               obscureText: isHidden,
@@ -165,7 +170,8 @@ class _SignUpFormState extends State<SignUpForm> {
                         ? Icons.visibility_off_rounded
                         : Icons.visibility_rounded)),
                 isDense: true,
-                label: FieldLabel(labelText: "Confirm Password"),
+                label: FieldLabel(
+                    labelText: AppLocalizations.of(context)!.confirmPassword),
               ),
             ),
           ),
@@ -185,7 +191,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 }
               },
               child: Text(
-                "Sign Up",
+                AppLocalizations.of(context)!.signup,
                 style: TextStyle(
                   fontFamily: "childos",
                   color: Colors.white,
@@ -202,7 +208,7 @@ class _SignUpFormState extends State<SignUpForm> {
                         builder: (context) => const LoginScreen()));
               },
               child: Text(
-                "Already Have Acccount?",
+                AppLocalizations.of(context)!.alreadyHaveAccount,
                 style: TextStyle(fontSize: 9.sp, color: Colors.blue.shade700),
               )),
         ],

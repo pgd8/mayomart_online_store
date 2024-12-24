@@ -7,6 +7,7 @@ import 'package:mayomart_online_store/Shared_Components/custom_text.dart';
 import 'package:mayomart_online_store/Tabs/Home_Tab_Components/home_categories.dart';
 import 'package:mayomart_online_store/Tabs/Home_Tab_Components/welcome_message_and_cart_button.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -32,7 +33,7 @@ class HomeTab extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 0.01.sw),
                         child: SearchBar(
-                          hintText: "Search here...",
+                          hintText: AppLocalizations.of(context)!.searchHere,
                           trailing: Iterable.generate(
                             1,
                             (index) => Icon(
@@ -54,7 +55,7 @@ class HomeTab extends StatelessWidget {
             margin:
                 EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
             child: CustomText(
-                text: "Categories",
+                text: AppLocalizations.of(context)!.categoriesTab,
                 size: 14.sp,
                 color: provider.appMode == ThemeMode.light
                     ? AppTheme.secondaryColor
@@ -64,7 +65,7 @@ class HomeTab extends StatelessWidget {
         Container(
           margin: EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
           child: CustomText(
-              text: "Offers",
+              text: AppLocalizations.of(context)!.offers,
               size: 14.sp,
               color: provider.appMode == ThemeMode.light
                   ? AppTheme.secondaryColor
@@ -74,7 +75,7 @@ class HomeTab extends StatelessWidget {
         Container(
           margin: EdgeInsets.symmetric(vertical: 0.01.sh, horizontal: 0.02.sw),
           child: CustomText(
-              text: "Recommended",
+              text: AppLocalizations.of(context)!.recommended,
               size: 14.sp,
               color: provider.appMode == ThemeMode.light
                   ? AppTheme.secondaryColor

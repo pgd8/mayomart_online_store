@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
@@ -10,7 +11,7 @@ import 'package:mayomart_online_store/Screens/Products_Screen/products_screen.da
 import 'package:mayomart_online_store/Screens/Sign_Up_Screen/sign_up_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "15 Mayo Mart",
+        locale: Locale(provider.languageCode),
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates:AppLocalizations.localizationsDelegates,
         themeMode: provider.appMode,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
-import 'package:mayomart_online_store/Tabs/Search_Tab/search_tab.dart';
+import 'package:mayomart_online_store/Tabs/search_tab.dart';
 import 'package:mayomart_online_store/Tabs/profile_tab.dart';
 import 'package:mayomart_online_store/Tabs/home_tab.dart';
 import '../../My_APP/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -29,14 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ind = index;
             setState(() {});
           },
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+                icon: Icon(Icons.home_rounded),
+                label: AppLocalizations.of(context)!.homeTap),
             BottomNavigationBarItem(
-                icon: Icon(Icons.category_outlined), label: "Category"),
+                icon: Icon(Icons.search),
+                label: AppLocalizations.of(context)!.searchTab),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_3_outlined), label: "profile"),
+                icon: Icon(Icons.category_outlined),
+                label: AppLocalizations.of(context)!.categoriesTab),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person_3_outlined),
+                label: AppLocalizations.of(context)!.profileTab),
           ]),
       appBar: ind == 0
           ? AppBar(
@@ -65,11 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String titleDetect() {
     if (ind == 1) {
-      return "Search";
+      return AppLocalizations.of(context)!.searchTab;
     } else if (ind == 2) {
-      return "Category";
+      return AppLocalizations.of(context)!.categoriesTab;
     } else {
-      return "Profile";
+      return AppLocalizations.of(context)!.profileTab;
     }
   }
 }
