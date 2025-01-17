@@ -11,11 +11,16 @@ class ShareApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
-    return SettingTemplate(
-        icon: Icon(Icons.share,
-            color: provider.appMode == ThemeMode.light
-                ? AppTheme.mainColor
-                : AppTheme.thirdColor),
-        title: AppLocalizations.of(context)!.shareApp);
+    return InkWell(
+      onTap: (){
+
+      },
+      child: SettingTemplate(
+          icon: Icon(Icons.share,
+              color: provider.appMode == ThemeMode.light
+                  ? AppTheme.mainColor
+                  : AppTheme.thirdColor),
+          title: AppLocalizations.of(context)!.shareApp),
+    );
   }
 }

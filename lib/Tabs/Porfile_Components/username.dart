@@ -8,12 +8,14 @@ import '../../My_APP/app_theme.dart';
 class Username extends StatelessWidget {
   const Username({super.key});
 
+  static String userName = "";
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
     return Container(
       child: Text(
-        "Abdelrahman Hamdi",
+        userName,
         style: TextStyle(
           fontSize: 14.sp,
           color: provider.appMode == ThemeMode.light

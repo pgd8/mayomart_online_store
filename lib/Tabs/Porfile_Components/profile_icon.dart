@@ -19,12 +19,20 @@ class ProfileIcon extends StatelessWidget {
                     ? AppTheme.secondaryColor
                     : AppTheme.thirdColor,
                 width: 5.sp)),
-        child: Icon(
-          Icons.person,
-          color: provider.appMode == ThemeMode.light
-              ? AppTheme.secondaryColor
-              : AppTheme.thirdColor,
-          size: 120.sp,
+        child: Badge(
+          label: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.edit,
+                color: AppTheme.thirdColor,
+              )),
+          child: Icon(
+            Icons.person,
+            color: provider.appMode == ThemeMode.light
+                ? AppTheme.secondaryColor
+                : AppTheme.thirdColor,
+            size: 120.sp,
+          ),
         )); // profile icon
   }
 }

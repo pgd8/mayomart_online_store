@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mayomart_online_store/Data_Classes/user_model.dart';
 import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
 import 'package:mayomart_online_store/Tabs/search_tab.dart';
 import 'package:mayomart_online_store/Tabs/profile_tab.dart';
@@ -10,14 +11,20 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
 
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  static User user =
+      User(userName: "", email: "", phoneNumber: "", address: "", password: "");
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => HomeScreenState(user: user);
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   int ind = 0;
+  User user;
+
+  HomeScreenState({required this.user});
 
   @override
   Widget build(BuildContext context) {

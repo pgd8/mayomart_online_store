@@ -71,33 +71,33 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ? AppTheme.secondaryColor
                           : AppTheme.thirdColor),
                 ),
-                IconButton(
-                    onPressed: () {
-                      if (product.quantityInStock <= count) {
-                        showDialog(
-                          context: context,
-                          builder: (context) => ErrorDialog(
-                              errorMessage:
-                                  AppLocalizations.of(context)!.lastItemsError),
-                        );
-                      } else {
-                        if (count == 10) {
-                          showDialog(
-                            context: context,
-                            builder: (context) => ErrorDialog(
-                                errorMessage: AppLocalizations.of(context)!
-                                    .maxQuantityError),
-                          );
-                        } else {
-                          count++;
-                        }
-                      }
-                      setState(() {});
-                    },
-                    icon: Icon(Icons.add,
-                        color: provider.appMode == ThemeMode.light
-                            ? AppTheme.secondaryColor
-                            : AppTheme.thirdColor)), // Add Button
+                // IconButton(
+                //     onPressed: () {
+                //       if (product.quantityInStock <= count) {
+                //         showDialog(
+                //           context: context,
+                //           builder: (context) => ErrorDialog(
+                //               errorMessage:
+                //                   AppLocalizations.of(context)!.lastItemsError),
+                //         );
+                //       } else {
+                //         if (count == 10) {
+                //           showDialog(
+                //             context: context,
+                //             builder: (context) => ErrorDialog(
+                //                 errorMessage: AppLocalizations.of(context)!
+                //                     .maxQuantityError),
+                //           );
+                //         } else {
+                //           count++;
+                //         }
+                //       }
+                //       setState(() {});
+                //     },
+                //     icon: Icon(Icons.add,
+                //         color: provider.appMode == ThemeMode.light
+                //             ? AppTheme.secondaryColor
+                //             : AppTheme.thirdColor)), // Add Button
               ],
             ),
             Container(
@@ -120,7 +120,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     Navigator.pushNamed(context, CartScreen.routeName,
                         arguments: cartModel);
                   }
-                  product.quantityInStock -= count;
+                  // product.quantityInStock -= count;
                 },
                 child: Text(
                   AppLocalizations.of(context)!.addToCart,

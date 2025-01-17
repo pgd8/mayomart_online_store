@@ -7,20 +7,21 @@ import 'package:provider/provider.dart';
 class Email extends StatelessWidget {
   const Email({super.key});
 
+  static String email = "";
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
     return Container(
       margin: EdgeInsets.only(bottom: 0.02.sh),
       child: Text(
-        "abdelrahmanhamdi08@gmail.com",
+        email,
         style: TextStyle(
           fontSize: 9.sp,
           color: provider.appMode == ThemeMode.light
               ? AppTheme.secondaryColor
               : AppTheme.thirdColor,
           fontWeight: FontWeight.bold,
-          fontFamily: "childos",
           textBaseline: TextBaseline.alphabetic,
         ),
       ),

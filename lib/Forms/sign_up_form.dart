@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mayomart_online_store/Data_Classes/user_model.dart';
+import 'package:mayomart_online_store/Firebase/firebase_functions.dart';
 import 'package:mayomart_online_store/My_APP/app_theme.dart';
+import 'package:mayomart_online_store/Screens/Cart/cart_screen.dart';
 import 'package:mayomart_online_store/Screens/Home_Screen/home_screen.dart';
 import 'package:mayomart_online_store/Screens/Login_Screen/login_screen.dart';
+import 'package:mayomart_online_store/Shared_Components/dialogs.dart';
 import 'package:mayomart_online_store/Shared_Components/field_label.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mayomart_online_store/Tabs/Home_Tab_Components/welcome_message_and_cart_button.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/username.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:mayomart_online_store/Tabs/Porfile_Components/email.dart';
 
 class SignUpForm extends StatefulWidget {
   SignUpForm({super.key});
@@ -19,6 +26,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextEditingController usernameCon = TextEditingController();
   TextEditingController emailCon = TextEditingController();
   TextEditingController phoneNumCon = TextEditingController();
+  TextEditingController addressCon = TextEditingController();
   TextEditingController passwordCon = TextEditingController();
   TextEditingController confirmPassCon = TextEditingController();
 
@@ -36,7 +44,7 @@ class _SignUpFormState extends State<SignUpForm> {
         children: [
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.02.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.02.sh),
             child: TextFormField(
               cursorColor: provider.appMode == ThemeMode.light
                   ? AppTheme.secondaryColor
@@ -53,6 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
               keyboardType: TextInputType.name,
               style: TextStyle(
                   fontSize: 10.sp,
+                  fontFamily: "childos",
                   color: provider.appMode == ThemeMode.light
                       ? AppTheme.secondaryColor
                       : AppTheme.thirdColor),
@@ -60,7 +69,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
               decoration: InputDecoration(
                   label: FieldLabel(
@@ -84,7 +93,31 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  label: FieldLabel(
+                      labelText: AppLocalizations.of(context)!.address)),
+              controller: addressCon,
+              cursorColor: provider.appMode == ThemeMode.light
+                  ? AppTheme.secondaryColor
+                  : AppTheme.thirdColor,
+              validator: (value) {
+                if (value!.isEmpty || value == "") {
+                  return AppLocalizations.of(context)!.addressIsRequired;
+                }
+              },
+              keyboardType: TextInputType.streetAddress,
+              style: TextStyle(
+                  fontSize: 10.sp,
+                  color: provider.appMode == ThemeMode.light
+                      ? AppTheme.secondaryColor
+                      : AppTheme.thirdColor),
+            ),
+          ),
+          Container(
+            margin:
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
               decoration: InputDecoration(
                   label: FieldLabel(
@@ -108,7 +141,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
               controller: passwordCon,
               cursorColor: provider.appMode == ThemeMode.light
@@ -141,7 +174,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: TextFormField(
               controller: confirmPassCon,
               cursorColor: provider.appMode == ThemeMode.light
@@ -177,16 +210,30 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             margin:
-                EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
+            EdgeInsets.symmetric(horizontal: 0.02.sw, vertical: 0.01.sh),
             child: ElevatedButton(
               style:
-                  ElevatedButton.styleFrom(backgroundColor: AppTheme.mainColor),
+              ElevatedButton.styleFrom(backgroundColor: AppTheme.mainColor),
               onPressed: () {
                 if (formKey.currentState!.validate()) {
+                  showLoading(context);
+                  User user = User(
+                      userName: usernameCon.text,
+                      email: emailCon.text,
+                      phoneNumber: phoneNumCon.text,
+                      address: addressCon.text,
+                      password: passwordCon.text);
+                  String name = user.userName;
+                  addUser(user);
+                  CartScreen.user = user;
+                  Username.userName = name;
+                  Email.email = user.email;
+                  WelcomeMessageAndCartButton.userName = name;
+                  hideDialog(context);
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
+                        builder: (context) => HomeScreen(),
                       ));
                 }
               },

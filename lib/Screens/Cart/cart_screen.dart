@@ -1,27 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mayomart_online_store/Data_Classes/cart_model.dart';
+import 'package:mayomart_online_store/Data_Classes/order_model.dart';
+import 'package:mayomart_online_store/Data_Classes/user_model.dart';
+import 'package:mayomart_online_store/Firebase/firebase_functions.dart';
 import 'package:mayomart_online_store/Screens/Cart/components/product_in_cart.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 import 'package:provider/provider.dart';
 import 'package:mayomart_online_store/My_APP/my_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../../My_APP/app_theme.dart';
 
 class CartScreen extends StatefulWidget {
   static const String routeName = "Cart Screen";
 
-  const CartScreen({super.key});
+  CartScreen({super.key});
+
+  static User user =
+  User(userName: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      password: "");
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  State<CartScreen> createState() => CartScreenState(user: user);
 
   static List<CartModel> cartProducts = [];
 }
 
-class _CartScreenState extends State<CartScreen> {
+class CartScreenState extends State<CartScreen> {
+  User user;
+  int productStock = 0;
+  int totalPrice = 0;
+
+  CartScreenState({required this.user});
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(360, 690));
@@ -36,23 +51,25 @@ class _CartScreenState extends State<CartScreen> {
             Expanded(
               child: ListView.builder(
                 itemCount: CartScreen.cartProducts.length,
-                itemBuilder: (context, index) => Slidable(
-                  endActionPane:
+                itemBuilder: (context, index) =>
+                    Slidable(
+                      endActionPane:
                       ActionPane(motion: const BehindMotion(), children: [
-                    IconButton(
-                        onPressed: () {
-                          CartScreen.cartProducts.removeAt(index);
-                          setState(() {});
-                        },
-                        icon: const Icon(
-                          Icons.delete,
-                          color: Colors.red,
-                        ))
-                  ]),
-                  child: ProductInCart(
-                    productModel: CartScreen.cartProducts[index].product,
-                  ),
-                ),
+                        IconButton(
+                            onPressed: () {
+                              CartScreen.cartProducts.removeAt(index);
+                              setState(() {});
+                            },
+                            icon: const Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            ))
+                      ]),
+                      child: ProductInCart(
+                        productModel: CartScreen.cartProducts[index].product,
+                        quantity: CartScreen.cartProducts[index].quantity,
+                      ),
+                    ),
               ),
             ),
             slideButton(provider)
@@ -86,7 +103,31 @@ class _CartScreenState extends State<CartScreen> {
           ),
           animationDuration: const Duration(milliseconds: 200),
           onSubmit: () {
+            for (int i = 0; i < CartScreen.cartProducts.length; i++) {
+              try {
+                int price = int.parse(CartScreen.cartProducts[i].product.price);
+                totalPrice += (price * CartScreen.cartProducts[i].quantity);
+
+                int productInStock = int.parse(
+                    CartScreen.cartProducts[i].product.quantityInStock);
+                if (productInStock >= CartScreen.cartProducts[i].quantity) {
+                  CartScreen.cartProducts[i].product.quantityInStock =
+                      (productInStock - CartScreen.cartProducts[i].quantity)
+                          .toString();
+                  updateProductQuantity(CartScreen.cartProducts[i].product);
+                } else {
+                  print("Something went wrong");
+                }
+              } catch (e) {
+                print('Error parsing price or quantity: $e');
+              }
+            }
+            addOrderToFireStore(OrderModel(
+                orderProducts: CartScreen.cartProducts,
+                userID: user.id,
+                totalPrice: totalPrice));
             CartScreen.cartProducts.clear();
+            totalPrice = 0;
             setState(() {});
           },
           text: AppLocalizations.of(context)!.swipeToPlaceOrder,

@@ -35,10 +35,10 @@ class MyApp extends StatelessWidget {
         routes: {
           LoginScreen.routeName: (context) => const LoginScreen(),
           SignUpScreen.routeName: (context) => const SignUpScreen(),
-          HomeScreen.routeName: (context) => const HomeScreen(),
+          HomeScreen.routeName: (context) =>  HomeScreen(),
           ProductsScreen.routeName: (context) => ProductsScreen(),
           ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
-          CartScreen.routeName: (context) => const CartScreen(),
+          CartScreen.routeName: (context) => CartScreen(),
           OrderScreen.routeName: (context) => const OrderScreen(),
         },
       ),

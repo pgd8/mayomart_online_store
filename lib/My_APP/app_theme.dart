@@ -8,7 +8,30 @@ class AppTheme {
   static const Color categoryColor = Color.fromRGBO(255, 0, 0, 0.4);
 
   static ThemeData lightTheme = ThemeData(
+    badgeTheme: BadgeThemeData(
+      backgroundColor: mainColor,
+      alignment: Alignment.bottomRight,
+      padding: const EdgeInsets.all(0),
+      smallSize: 20,
+      largeSize: 40,
+      offset: const Offset(10, -20),
+    ),
+    cardTheme: CardTheme(
+      color: thirdColor,
+      elevation: 0.02.sh,
+    ),
       scaffoldBackgroundColor: thirdColor,
+      dialogTheme: DialogTheme(
+        backgroundColor: secondaryColor,
+        contentTextStyle: TextStyle(
+          fontFamily: "childos",
+          fontSize: 12.sp,
+          color: secondaryColor
+        )
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppTheme.mainColor,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         errorStyle: TextStyle(fontSize: 9.sp),
@@ -59,10 +82,10 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-        backgroundColor: mainColor,
-        elevation: 0.01.sh,
-        shadowColor: Colors.grey,
-      )),
+            backgroundColor: mainColor,
+            elevation: 0.01.sh,
+            shadowColor: Colors.grey,
+          )),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         backgroundColor: AppTheme.thirdColor,
@@ -92,10 +115,33 @@ class AppTheme {
         tileColor: categoryColor,
         iconColor: secondaryColor,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
       ));
 
   static ThemeData darkTheme = ThemeData(
+      badgeTheme: BadgeThemeData(
+        backgroundColor: mainColor,
+        alignment: Alignment.bottomRight,
+        padding: const EdgeInsets.all(0),
+        smallSize: 20,
+        largeSize: 40,
+        offset: const Offset(10, -20),
+      ),
+      cardTheme: CardTheme(
+        color: thirdColor,
+        elevation: 0.02.sh,
+      ),
+      dialogTheme: DialogTheme(
+        backgroundColor: thirdColor,
+          contentTextStyle: TextStyle(
+              fontFamily: "childos",
+              fontSize: 12.sp,
+              color: thirdColor
+          )
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppTheme.mainColor,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         errorStyle: TextStyle(fontSize: 9.sp),
@@ -147,10 +193,10 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-        backgroundColor: mainColor,
-        elevation: 0.01.sh,
-        shadowColor: Colors.grey,
-      )),
+            backgroundColor: mainColor,
+            elevation: 0.01.sh,
+            shadowColor: Colors.grey,
+          )),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         backgroundColor: secondaryColor,
@@ -180,6 +226,6 @@ class AppTheme {
         tileColor: categoryColor,
         iconColor: secondaryColor,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.r)),
       ));
 }

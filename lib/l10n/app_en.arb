@@ -40,5 +40,18 @@
   "maxQuantityError": "Sorry but you got the maximum quantity",
   "lastItemsError": "Sorry but these are the last quantity in stock, you can't buy more",
   "swipeToPlaceOrder": "Swipe To Place Order",
-  "addToCart": "Add To Cart"
+  "addToCart": "Add To Cart",
+  "loading": "Loading",
+  "address": "Address",
+  "addressIsRequired": "Address Is Required",
+  "detailsAboutApp": "MayoMart is an innovative mobile application designed as an online shopping platform specifically for residents of May City in Cairo.\n MayoMart aims to provide a convenient and efficient shopping experience, allowing users to access a wide\n range of products from the comfort of their homes.",
+  "developer": "Developed by Abdelrahman Hamdi",
+  "informationCollection": "MayoMart collects personal information\n (e.g., name, email, address) and usage data to enhance \n user experience and improve services.",
+  "useOfInformation" : "Collected data is used for order processing,\n customer support, marketing, and app improvements.",
+  "dataSharing" : "User information may be shared with third-party \n service providers for services like payment processing and delivery.",
+  "dataSecurity": "Measures are in place to protect\n user data from unauthorized access or breaches.",
+  "userRights": "Users can access, modify, \n or delete their personal information and can opt out of marketing communications.",
+  "cookies": "The app uses cookies to enhance\n functionality and analyze usage patterns.",
+  "policyUpdates": "The privacy policy may be updated,\n and users will be notified of significant changes.",
+  "contactInformation": "Users can contact with for questions or concerns regarding their privacy."
 }
